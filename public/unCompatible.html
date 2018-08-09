@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>系统不兼容</title>
+  <style>
+    .center {
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 800px;
+      height: 400px;
+      margin-left: -400px;
+      margin-top: -200px;
+    }
+
+    h5 {
+      color: #ff0000;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    function getExplore() {
+      var sys = {},
+        ua = navigator.userAgent.toLowerCase(),
+        s;
+      (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1] :
+        (s = ua.match(/msie ([\d\.]+)/)) ? sys.ie = s[1] :
+          (s = ua.match(/edge\/([\d\.]+)/)) ? sys.edge = s[1] :
+            (s = ua.match(/firefox\/([\d\.]+)/)) ? sys.firefox = s[1] :
+              (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? sys.opera = s[1] :
+                (s = ua.match(/chrome\/([\d\.]+)/)) ? sys.chrome = s[1] :
+                  (s = ua.match(/version\/([\d\.]+).*safari/)) ? sys.safari = s[1] : 0;
+
+      // 根据关系进行判断
+      if (sys.ie) return ({ explore: 'IE', version: sys.ie })
+      if (sys.edge) return ({ explore: 'EDGE', version: sys.edge })
+      if (sys.firefox) return ({ explore: 'FIREFOX', version: sys.firefox })
+      if (sys.chrome) return ({ explore: 'CHROME', version: sys.chrome })
+      if (sys.opera) return ({ explore: 'OPERA', version: sys.opera })
+      if (sys.safari) return ({ explore: 'SAFARI', version: sys.safari })
+      return 'Unkonwn'
+    }
+
+    var explore = getExplore()
+
+    if (!(explore.explore === 'IE' && parseInt(explore.version) < 9) && !(explore.explore === 'CHROME' && parseInt(explore.version) < 49)) {
+      window.location.href = './index.html'
+    }
+  </script>
+
+  <div class="center">
+    <h4>不好意思，检测到您目前正在使用低版本内核浏览器，系统目前不支持该版本的浏览器</h4>
+    <h4>如果您使用的是
+      <span style="color: red"> 360 , QQ , 搜狗 , 猎豹 </span> 等双核浏览器, 请切换
+      <span style="color: red">急速模式</span>
+    </h4>
+    <h4>如果您没有安装现代浏览器, 建议您安装
+      <a href="http://www.google.cn/chrome/browser/desktop/index.html">谷歌浏览器</a>
+    </h4>
+  </div>
+</body>
+
+</html>

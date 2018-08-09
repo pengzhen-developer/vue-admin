@@ -1,0 +1,10 @@
+.el-dropdown-menu--mini {
+  padding: 4px 0;
+  min-width: 140px;
+
+  .el-dropdown-menu__item {
+    line-height: 24px;
+    padding: 5px 20px;
+    font-size: 12px;
+  }
+}

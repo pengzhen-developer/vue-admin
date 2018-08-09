@@ -1,0 +1,31 @@
+@import './normalize.css';
+
+* {
+  box-sizing: border-box;
+}
+
+/* 
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+  margin: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  min-height: 150px;
+  min-width: 150px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: #c0c4cc;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #c0c4cc;
+} */

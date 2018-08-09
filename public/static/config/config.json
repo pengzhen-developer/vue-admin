@@ -1,0 +1,15 @@
+{
+  "api": {
+    "upms": "http://192.168.2.55:9007/uas/"
+  },
+
+  "axios": {
+    "Content-Type": "application/json;charset=UTF-8",
+    "timeout": 30000
+  },
+
+  "theme": "blue",
+
+  "title": "华中地区集成运营平台",
+  "subTitle": "UAS"
+}
