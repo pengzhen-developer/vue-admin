@@ -49,8 +49,6 @@ npm run serve
   - 🌟 kindo-card
   - 🌟 kindo-card-search
   - 🌟 kindo-chart (参考 [vue-echarts](https://github.com/ecomfe/vue-echarts))
-  - 🌟 kindo-icon
-  - 🌟 kindo-icon-list
   - 🌟 kindo-icon-select
   - 🌟 kindo-rich-datepicker
   - 🌟 kindo-side-panel
