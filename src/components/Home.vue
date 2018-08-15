@@ -8,19 +8,17 @@
 export default {
   methods: {
     testAxios() {
-      this.$http.get('123')
+      this.$http.get('https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html')
 
       setTimeout(() => {
-        this.$http.get('456')
-
-        setTimeout(() => {
-          this.$http.get('789')
-
-          setTimeout(() => {
-            this.$http.get('10')
-          }, 3000)
-        }, 1500)
-      }, 2200)
+        this.$http.get('https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html')
+      }, 200)
+      setTimeout(() => {
+        this.$http.get('https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html')
+      }, 300)
+      setTimeout(() => {
+        this.$http.get('https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html')
+      }, 400)
     }
   }
 }
