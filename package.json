@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.4.6",
+    "nprogress": "^0.2.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },
@@ -17,6 +18,8 @@
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
@@ -31,6 +34,9 @@
     "rules": {
       "no-console": 0,
       "no-debugger": 0
+    },
+    "globals": {
+      "kindo": true
     },
     "parserOptions": {
       "parser": "babel-eslint"
