@@ -1,0 +1,41 @@
+{
+  "description1": "------------- 系统唯一配置文件",
+
+  "api": {
+    "description1": "------------- api 相关配置",
+    "description2": "------------- 影响各子模块系统的请求地址",
+
+    "upms": "http://192.168.2.55:9033/upms/",
+    "cDrgQC": "http://192.168.2.55:9033/cDrgQC/",
+    "cDrgKPI": "http://192.168.2.55:9033/cDrgKPI/",
+    "cDrgDAC": "http://192.168.2.55:9033/cDrgDAC/"
+  },
+
+  "axios": {
+    "description1": "------------- axios 相关配置",
+    "description2": "------------- 影响 content-type 请求类型",
+    "description3": "------------- 影响 timeout 超时时间",
+
+    "Content-Type": "application/json;charset=UTF-8",
+    "timeout": 30000
+  },
+
+  "theme": {
+    "description1": "------------- 主题相关配置",
+    "description2": "------------- 影响启用的默认主题与布局",
+    "description3": "------------- 影响系统的网站title 和 subTitle",
+
+    "defaultTheme": "default",
+    "title": "C-DRG区域绩效平台",
+    "subTitle": "医疗质量监管"
+  },
+
+  "business": {
+    "description1": "------------- 公司信息相关配置",
+    "description2": "------------- 影响登录页面的版权，公司名称与跳转的公司主页",
+
+    "copyright": "Copyright © 2018.Kindo All rights reserved.",
+    "businessName": "金豆数据",
+    "businessSite": "http://www.kindo.com.cn/"
+  }
+}
