@@ -48,14 +48,10 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(() => {
-<<<<<<< HEAD
   // Wait transition
   setTimeout(() => {
     NProgress.done()
   }, 200)
-=======
-  NProgress.done()
->>>>>>> 380264d02b773308643e54b015ce2ffcfa696a6d
 })
 
 export default router
