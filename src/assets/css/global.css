@@ -1,5 +1,15 @@
 @import './normalize.css';
 
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
