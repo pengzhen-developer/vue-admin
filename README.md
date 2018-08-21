@@ -6,7 +6,7 @@
 
 ## 预览
 
-[UAS SITE](https://pz25925.github.io/vue-admin/dist/)
+[UAS SITE](https://pz25925.github.io/vue-admin/dist/#/login)
 
 ## 安装
 
