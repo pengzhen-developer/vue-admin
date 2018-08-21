@@ -1,5 +1,5 @@
 {
-  "description1": "------------- 系统唯一配置文件",
+  "description": "------------- 系统唯一配置文件",
 
   "api": {
     "description1": "------------- api 相关配置",
@@ -12,7 +12,7 @@
   },
 
   "axios": {
-    "description1": "------------- axios 相关配置",
+    "description1": "------------- http 相关配置",
     "description2": "------------- 影响 content-type 请求类型",
     "description3": "------------- 影响 timeout 超时时间",
 

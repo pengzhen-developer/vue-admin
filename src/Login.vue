@@ -12,7 +12,7 @@
 
         <el-form ref="form" :model="view.model" :rules="view.rules" @submit.native.prevent @keyup.enter.native="login">
           <el-form-item label="" prop="userName">
-            <el-input v-model="view.model.userName" prefix-icon="el-icon-date" placeholder="Username"></el-input>
+            <el-input v-model="view.model.userName" prefix-icon="el-icon-date" autofocus placeholder="Username"></el-input>
           </el-form-item>
           <el-form-item label="" prop="password">
             <el-input v-model="view.model.password" prefix-icon="el-icon-date" placeholder="Password"></el-input>
@@ -41,6 +41,8 @@
 <script>
 import 'element-ui/lib/theme-chalk/display.css'
 
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -48,7 +50,7 @@ export default {
         model: {
           userName: '',
           password: '',
-          rememberMe: true
+          rememberMe: false
         },
 
         rules: {
@@ -60,10 +62,17 @@ export default {
   },
 
   methods: {
+    ...mapActions('USER', ['SET']),
+
     login() {
       this.$refs.form.validate(valid => {
         if (valid) {
-          this.$http.get('login', { params: this.view.model })
+          this.$router.push('/layout')
+
+          // Get user info from server, set to vuex
+          this.SET({
+            userName: '这是 login 处得到的用户信息'
+          })
         }
       })
     },

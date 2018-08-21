@@ -1,34 +1,47 @@
 import Vue from 'vue'
+
+// Install root component
 import App from './App.vue'
 
-import axios from './axios/index'
+// Install vuex
+import Vuex from 'vuex'
+import store from './store/index'
+
+// Install router
 import router from './router/index'
 
-import ElUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElUI)
+// Install library
+// Please check the usage './../library/README.md'
+import library from './../library/index.js'
 
+// Install axios
+import axios from './axios/index'
+
+// Install UI
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+// Install global css
 import './assets/css/global.css'
 
-global.kindo = global.kindo || {}
-window.kindo = window.kindo || {}
-
-// 挂载到 Vue 原型
+Vue.use(Vuex)
+Vue.use(library)
+Vue.use(ElementUI)
 Vue.prototype.$http = axios
-Vue.prototype.kindo = global.kindo || window.kindo
 
 Vue.config.productionTip = false
 
-Vue.prototype.$http
+// Get the app config
+// Install app
+axios
   .create()
   .get(`${process.env.BASE_URL}static/config/config.json`)
   .then(res => {
     kindo.config = res.data
-    // document title
-    document.title = kindo.config.theme.title
   })
   .then(() => {
     new Vue({
+      store,
       router,
       render: h => h(App)
     }).$mount('#app')
