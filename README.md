@@ -6,7 +6,7 @@
 
 ## 预览
 
-[UAS SITE](http://192.168.2.55/007/)
+[UAS SITE](https://pz25925.github.io/vue-admin/dist/)
 
 ## 安装
 
