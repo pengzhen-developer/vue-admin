@@ -6,7 +6,7 @@
 
 ## 预览
 
-[UAS SITE (内网系统，改造中...)](http://192.168.2.55/007/)
+[UAS SITE](http://192.168.2.55/007/)
 
 ## 安装
 
@@ -30,11 +30,9 @@ npm run serve
 
 ### v0.0.1(Beta)
 
-`2018-07-09`
+`2018-08-21`
 
-- UAS(系统)
-
-  - 正式发布
+- UAS
 
 - Framework(框架)
 
@@ -49,6 +47,8 @@ npm run serve
   - 🌟 kindo-card
   - 🌟 kindo-card-search
   - 🌟 kindo-chart (参考 [vue-echarts](https://github.com/ecomfe/vue-echarts))
+  - 🌟 kindo-icon
+  - 🌟 kindo-icon-list
   - 🌟 kindo-icon-select
   - 🌟 kindo-rich-datepicker
   - 🌟 kindo-side-panel

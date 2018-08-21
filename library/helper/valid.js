@@ -1,9 +1,9 @@
 /*
  * @Author: PengZhen 
- * @Description: 验证帮助类 
+ * @Description: 验证 
  * @Date: 2018-07-06 11:25:09 
- * @Last Modified by: PengZhen
- * @Last Modified time: 2018-07-30 15:29:01
+ * @Last Modified by:   PengZhen 
+ * @Last Modified time: 2018-07-06 11:25:09 
  */
 
 // 声明可用 pattern

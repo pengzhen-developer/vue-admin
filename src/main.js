@@ -1,47 +1,48 @@
-/*
- * @Author: PengZhen 
- * @Description: 程序入口文件 
- * @Date: 2018-07-05 15:48:20 
- * @Last Modified by: PengZhen
- * @Last Modified time: 2018-07-30 10:41:51
- */
-
 import Vue from 'vue'
-import router from './router'
-import app from './app.vue'
-import axios from 'axios'
-import './axios'
 
-// 加载 library
-// 使用方法请查看 ./../library/README.md
-import library from '../library'
+// Install root component
+import App from './App.vue'
 
-// 加载 UI 库
+// Install vuex
+import Vuex from 'vuex'
+import store from './store/index'
+
+// Install router
+import router from './router/index'
+
+// Install library
+// Please check the usage './../library/README.md'
+import library from './../library/index.js'
+
+// Install axios
+import axios from './axios/index'
+
+// Install UI
 import ElementUI from 'element-ui'
-import ElementTreeGrid from 'element-tree-grid'
+import 'element-ui/lib/theme-chalk/index.css'
 
-// 加载全局 css
+// Install global css
 import './assets/css/global.css'
+
+Vue.use(Vuex)
+Vue.use(library)
+Vue.use(ElementUI)
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
-Vue.use(library)
-Vue.use(ElementUI, { size: 'mini' })
-Vue.component(ElementTreeGrid.name, ElementTreeGrid)
-
-// 创建 axios 实例, 获取配置文件信息
-// 挂载 vue 到根实例上
-const axiosInstance = axios.create()
-const configPath = `${process.env.BASE_URL}static/config/config.json`
-
-axiosInstance
-  .get(configPath)
-  .then(config => {
-    kindo.config = config.data
+// Get the app config
+// Install app
+axios
+  .create()
+  .get(`${process.env.BASE_URL}static/config/config.json`)
+  .then(res => {
+    kindo.config = res.data
   })
   .then(() => {
     new Vue({
+      store,
       router,
-      render: h => h(app)
+      render: h => h(App)
     }).$mount('#app')
   })

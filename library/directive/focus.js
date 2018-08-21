@@ -16,7 +16,10 @@ export default {
       }
     }
 
-    if (binding.value) el.focus()
-    else el.blur()
+    if (binding.value) {
+      el.focus()
+    } else {
+      el.blur()
+    }
   }
 }

@@ -1,48 +1,52 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 
-Vue.use(VueRouter)
+// Progress
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
-let router = new VueRouter({
+Vue.use(Router)
+
+const router = new Router({
+  // Control scroll behavior
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition && to.meta.keepAlive) {
+      return savedPosition
+    }
+    return { x: 0, y: 0 }
+  },
+
   routes: [
-    {
-      path: '/',
-      name: 'app',
-      component: resolve => require(['@/app.vue'], resolve)
-    },
     {
       path: '/login',
       name: 'login',
-      component: resolve => require([`@/login.vue`], resolve)
+      component: () => import('./../Login.vue')
     },
-    {
-      path: '/home',
-      name: 'home',
-      component: resolve => require([`@/home.vue`], resolve)
-    },
+
     {
       path: '/layout',
       name: 'layout',
-      component: resolve => require([`@/layout/${kindo.config.theme}/index.vue`], resolve)
+      component: () => import(`./../components/layout/${kindo.config.theme.defaultTheme}/Layout.vue`)
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  // 每次重新跳转路由, 取消之前的 loading 状态
-  // todo:
-  // 状态置空后, 请求仍在等待中, 完成后, 导致状态异常了.
-  // if (kindo.$bus) {
-  //   kindo.$bus.loadingCount = 0
-  //   kindo.$bus.loading = false
-  // }
+  NProgress.start()
 
+  // Validate user status
   if (to.meta.auth) {
     next()
   } else {
-    // 不需要身份校验 直接通过
     next()
   }
+})
+
+router.afterEach(() => {
+  // Wait transition
+  setTimeout(() => {
+    NProgress.done()
+  }, 200)
 })
 
 export default router

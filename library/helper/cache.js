@@ -1,9 +1,9 @@
 /*
  * @Author: PengZhen 
- * @Description: 缓存帮助类
+ * @Description: 缓存 
  * @Date: 2018-07-06 11:23:58 
  * @Last Modified by: PengZhen
- * @Last Modified time: 2018-07-30 15:28:39
+ * @Last Modified time: 2018-07-06 14:58:40
  */
 
 import { encode, decode } from './util'

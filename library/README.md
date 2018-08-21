@@ -1,119 +1,63 @@
-# 这是 kindo-vue-admin 的底层核心库
+- Components(组件)
 
-## components 公用组件支持
+  - 🌟 kindo-card
+  - 🌟 kindo-card-search
+  - 🌟 kindo-chart (参考 [vue-echarts](https://github.com/ecomfe/vue-echarts))
+  - 🌟 kindo-icon
+  - 🌟 kindo-icon-list
+  - 🌟 kindo-icon-select
+  - 🌟 kindo-rich-datepicker
+  - 🌟 kindo-side-panel
+  - 🌟 kindo-table (参考 [element-table](http://element.eleme.io/#/zh-CN/component/table))
 
-- kindo-card
+- Helper(帮助类))
 
-  - 布局组件
-  - 支持 header, control, footer, more 插槽
+  - config
 
-- kindo-card-search
+    - 🌟 kindo.config...
 
-  - 布局组件-查询跳转专用
-  - 支持 more 插槽
+  - cache
 
-- kindo-chart
+    - 🌟 kindo.cache.set
+    - 🌟 kindo.cache.get
+    - 🌟 kindo.cache.remove
+    - 🌟 kindo.cache.clear
 
-  - 图表组件
-  - 底层依赖 echart 4.x
-  - 支持 echart 所有的时间与方法
+  - dictionary
 
-- kindo-side-panel
+    - 🌟 kindo.dictionary.get / kindo.dictionary.getDictionary
+    - 🌟 kindo.dictionary.getLabel
+    - 🌟 kindo.dictionary.getValue
 
-  - 弹出组件
-  - 支持左右弹出
-  - 支持双层弹出
+  - util
 
-- kindo-xlsx-preview
+    - 🌟 kindo.util.queryUrlParam
+    - 🌟 kindo.util.setUri
+    - 🌟 kindo.util.toTree
+    - 🌟 kindo.util.formatDate
+    - 🌟 kindo.util.formatTime
+    - 🌟 kindo.util.alert
+    - 🌟 kindo.util.confirm
+    - 🌟 kindo.util.notify
+    - 🌟 kindo.util.downloadFile
+    - 🌟 kindo.util.md5
+    - 🌟 kindo.util.encode
+    - 🌟 kindo.util.decode
 
-  - 预览组件
-  - 支持格式 xls, xlsx, txt
+  - valid
 
-- kindo-table
-
-  - 表格组件
-  - 底层依赖 element-table
-  - 支持 element-table 所有的方法
-  - 支持 url , queryParam 方式获取数据
-  - 支持 pagination 与 table
-
-## directive 指令支持
-
-- drag
-
-  - element-dialog 拖拽
-
-- focus
-
-## helper 方法支持
-
-- cache 缓存类支持
-
-  - set 赋值
-  - get 取值
-  - remove 删除指定值
-  - clear 清空
-
-- dictionary 字典类支持
-
-  - getDictionary / get 获取字典
-  - getLabel 获取字典的 label
-  - getValue 获取字典的 value
-
-- util 常用方法类支持
-
-  - queryUrlParam 获取 url 参数
-  - setUri 配置 uri
-  - toTree List 结构转换为 Tree 结构
-  - formatDate 格式化日期为 yyyy-MM-dd 格式
-  - formatTime 格式化日期为 yyyy-MM-dd HH:mm:ss 格式
-  - formatNum 格式化数字为千分位
-  - alert 提示
-  - confirm 提示
-  - notify 提示
-  - downloadFile 下载
-  - md5 加密
-  - encode 加密
-  - decode 解密
-
-- valid
-
-  - pattern 一系列可用正则验证
-  - isEmpty 是否为空验证
-  - length 长度验证
-  - lengthForByte 字节长度验证
-  - range 范围验证
-  - url 验证
-  - number 数字验证（正负整数）
-  - numerical 数值验证（包括整数、浮点数、正、负数）
-  - pNumerical 数值验证（包括整数、浮点数、正数）
-  - interger 整数验证
-  - pInterger 正整数及 0 验证
-  - nInterger 负整数及 0 验证
-  - mobile 手机号码验证
-  - telephone 电话号码验证
-  - idCard 验证
-  - email 验证
-
-## prototype 扩展原型支持
-
-- date
-
-  - formatDate 同 kindo.util.formatDate
-  - formatTime 同 kindo.util.formatDate
-  - proDate
-  - toDate
-
-- number
-
-  - toDate
-  - formatNum 同 kindo.util.formatNum
-
-- string
-
-  - restfulFormat RESTful 风格转换
-  - format
-  - byteLength
-  - toDate
-  - toFixed
-  - formatDate
+    - 🌟 kindo.valid.isEmpty
+    - 🌟 kindo.valid.length
+    - 🌟 kindo.valid.lengthForByte
+    - 🌟 kindo.valid.range
+    - 🌟 kindo.valid.url
+    - 🌟 kindo.valid.number
+    - 🌟 kindo.valid.numerical
+    - 🌟 kindo.valid.pNumerical
+    - 🌟 kindo.valid.interger
+    - 🌟 kindo.valid.pInterger
+    - 🌟 kindo.valid.nInterger
+    - 🌟 kindo.valid.mobile
+    - 🌟 kindo.valid.telephone
+    - 🌟 kindo.valid.idCard
+    - 🌟 kindo.valid.email

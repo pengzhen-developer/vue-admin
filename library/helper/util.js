@@ -1,9 +1,9 @@
 /*
- * @Author: PengZhen 
- * @Description: 常用方法帮助类
- * @Date: 2018-07-06 11:24:59 
+ * @Author: PengZhen
+ * @Description: 常用方法
+ * @Date: 2018-07-06 11:24:59
  * @Last Modified by: PengZhen
- * @Last Modified time: 2018-07-30 15:28:52
+ * @Last Modified time: 2018-07-19 11:06:48
  */
 
 const _PADCHAR = '='
@@ -286,8 +286,21 @@ export function downloadFile(url = '', param = {}, methods = 'get') {
         download(response)
       })
       .catch(error => {
-        console.error(error)
-        kindo.util.alert(error.message, '提示', 'error')
+        if (error && error.response && error.response.status) {
+          switch (error.response.status) {
+            case 760:
+               kindo.util.alert('不是有效的医院用户')
+              break
+            case 759:
+              kindo.util.alert('服务端excel模板有错误')
+              break
+            case 758:
+              kindo.util.alert('客户端 excel模板有错误')
+              break
+            default:
+              kindo.util.alert(error.message, '提示', 'error')
+          }
+        }
         kindo.$bus.$emit('loading', false)
       })
   } else if (methods.toLowerCase() === 'post') {

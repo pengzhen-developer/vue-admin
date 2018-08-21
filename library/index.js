@@ -3,7 +3,7 @@
  * @Description: 插件入口 
  * @Date: 2018-07-05 16:07:33 
  * @Last Modified by: PengZhen
- * @Last Modified time: 2018-07-30 15:37:23
+ * @Last Modified time: 2018-08-17 16:33:30
  */
 
 // 帮助类
@@ -22,20 +22,23 @@ import drag from './directive/drag'
 import focus from './directive/focus'
 
 // UI 库
-import KindoCard from './components/kindo-card'
-import kindoCardSearch from './components/kindo-card-search'
-import KindoChart from './components/kindo-chart'
-import KindoRichDatepicker from './components/kindo-rich-datepicker'
-import KindoSidePanel from './components/kindo-side-panel'
-import KindoTable from './components/kindo-table'
-import KindoIconSelect from './components/kindo-icon-select'
+// import KindoCard from './components/kindo-card'
+// import kindoCardSearch from './components/kindo-card-search'
+// import KindoChart from './components/kindo-chart'
+// import KindoRichDatepicker from './components/kindo-rich-datepicker'
+// import KindoSidePanel from './components/kindo-side-panel'
+// import KindoTable from './components/kindo-table'
+
+// import KindoIcon from './components/kindo-icon'
+// import KindoIconList from './components/kindo-icon-list'
+// import KindoIconSelect from './components/kindo-icon-select'
 
 // 暴露全局可访问变量
 global.kindo = { cache, dictionary, valid, util }
 
 const install = function(Vue) {
   const directive = [drag, focus]
-  const components = [KindoCard, kindoCardSearch, KindoChart, KindoRichDatepicker, KindoSidePanel, KindoTable, KindoIconSelect]
+  const components = []
 
   // 注册实例属性
   Vue.prototype.kindo = kindo
