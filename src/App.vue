@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { user } from '@/type'
 import { mapActions } from 'vuex'
 
 export default {
@@ -20,13 +21,13 @@ export default {
     // Change app title
     document.title = kindo.config.theme.title
 
-    // If Not logged in, push to login
-    // this.$router.push('/login')
-
-    // Logged in ? Get user info from cookie or storage, set to vuex
-    this.SET({
-      userName: '这是 app 处得到的用户信息'
-    })
+    // If logged in, Get user info from cookie or storage, set to vuex
+    // Not ? push to login
+    if (kindo.cache.get(user.USER_INFO)) {
+      this.SET(kindo.cache.get(user.USER_INFO))
+    } else {
+      this.$router.push('/login')
+    }
   },
 
   methods: {

@@ -41,6 +41,7 @@
 <script>
 import 'element-ui/lib/theme-chalk/display.css'
 
+import { user } from '@/type'
 import { mapActions } from 'vuex'
 
 export default {
@@ -69,10 +70,10 @@ export default {
         if (valid) {
           this.$router.push('/layout')
 
+          kindo.cache.set(user.USER_INFO, this.view.model)
+
           // Get user info from server, set to vuex
-          this.SET({
-            userName: '这是 login 处得到的用户信息'
-          })
+          this.SET(this.view.model)
         }
       })
     },

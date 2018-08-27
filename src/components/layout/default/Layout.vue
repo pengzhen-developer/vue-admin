@@ -13,6 +13,7 @@
               header
             </el-col>
             <el-col class="text-right" :span="12">
+              <span> {{ USER.USER_INFO.userName }} , 您好 </span>
               <el-button type="text" @click="$router.push('/login')">返回登录</el-button>
             </el-col>
           </el-row>

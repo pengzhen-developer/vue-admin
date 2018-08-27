@@ -1,6 +1,8 @@
+import { user as USER } from '@/type'
+
 // initial state
 const state = {
-  USER_INFO: {}
+  [USER.USER_INFO]: {}
 }
 
 // actions
@@ -13,7 +15,7 @@ const actions = {
 // mutations
 const mutations = {
   SET(state, argument) {
-    state.USER_INFO = argument
+    state[USER.USER_INFO] = argument
   }
 }
 

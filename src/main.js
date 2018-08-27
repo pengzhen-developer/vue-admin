@@ -31,7 +31,7 @@ Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
-// Get the app config
+// Get the app's config
 // Install app
 axios
   .create()
