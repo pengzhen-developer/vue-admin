@@ -1,26 +1,15 @@
 <template>
   <div>
-    <el-alert type="success" title="当前的布局风格是 default "></el-alert>
-
     <el-container>
-      <el-aside :width="asideWidth">
-        menu
+      <el-aside class="aside-menu" :width="asideWidth">
+        <layout-aside></layout-aside>
       </el-aside>
-      <el-container>
-        <el-header>
-          <el-row>
-            <el-col :span="12">
-              header
-            </el-col>
-            <el-col class="text-right" :span="12">
-              <span> {{ USER.USER_INFO.userName }} , 您好 </span>
-              <el-button type="text" @click="$router.push('/login')">返回登录</el-button>
-            </el-col>
-          </el-row>
+      <el-container class="main">
+        <el-header class="main-header">
+          <layout-header></layout-header>
         </el-header>
 
         <el-main>
-          main
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -29,25 +18,41 @@
 </template>
 
 <script>
+import LayoutAside from './LayoutAside'
+import LayoutHeader from './LayoutHeader'
 import { mapState } from 'vuex'
 
 export default {
+  components: {
+    LayoutAside,
+    LayoutHeader
+  },
+
   computed: {
-    ...mapState(['USER'])
+    ...mapState(['LAYOUT']),
+
+    asideWidth: function() {
+      return this.LAYOUT.COLLAPSE ? '64px' : '240px'
+    }
   },
 
   data() {
     return {
-      routers: this.$router.options.routes,
-
-      asideWidth: '240px'
+      routers: this.$router.options.routes
     }
   }
 }
 </script>
 
-<style>
-.el-main {
-  padding: 20px;
+<style lang="scss" scoped>
+.aside-menu {
+  padding: 0;
+
+  background-color: rgb(44, 46, 62);
+  transition: width 0.3s ease-out;
+}
+
+.main-header {
+  padding: 0;
 }
 </style>
