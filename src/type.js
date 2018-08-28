@@ -1,3 +1,4 @@
+// 用户信息
 export const user = {
   /**
    * 用户信息
@@ -15,6 +16,14 @@ export const user = {
   USER_MENU_TREE: 'USER_MENU_TREE'
 }
 
-const type = { user }
+// 布局信息
+export const layout = {
+  /**
+   * 折叠菜单
+   */
+  COLLAPSE: 'COLLAPSE'
+}
+
+const type = { user, layout }
 
 export default type
