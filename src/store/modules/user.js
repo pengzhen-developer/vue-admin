@@ -9,6 +9,10 @@ const state = {
 const actions = {
   SET({ commit }, argument) {
     commit('SET', argument)
+  },
+
+  REMOVE({ commit }, argument) {
+    commit('REMOVE', argument)
   }
 }
 
@@ -16,6 +20,10 @@ const actions = {
 const mutations = {
   SET(state, argument) {
     state[USER.USER_INFO] = argument
+  },
+
+  REMOVE(state) {
+    state[USER.USER_INFO] = {}
   }
 }
 
