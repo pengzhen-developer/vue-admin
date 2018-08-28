@@ -18,6 +18,12 @@ const router = new Router({
 
   routes: [
     {
+      path: '/',
+      name: 'login',
+      component: () => import('./../Login.vue')
+    },
+
+    {
       path: '/login',
       name: 'login',
       component: () => import('./../Login.vue')
@@ -27,6 +33,18 @@ const router = new Router({
       path: '/layout',
       name: 'layout',
       component: () => import(`./../components/layout/${kindo.config.theme.defaultTheme}/Layout.vue`)
+    },
+
+    {
+      path: '/noAuth',
+      name: 'noAuth',
+      component: () => import(`./../components/NoAuthority.vue`)
+    },
+
+    {
+      path: '*',
+      name: 'notFound',
+      component: () => import(`./../components/NotFound.vue`)
     }
   ]
 })
