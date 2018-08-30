@@ -3,8 +3,8 @@
 
     <div class="logo">
       <div v-if="!LAYOUT.COLLAPSE" class="title">METRONIC</div>
-      <div class="conotrol">
-        <i class="el-icon-menu" @click="COLLAPSE"></i>
+      <div class="control">
+        <icon name="bars" @click.native="COLLAPSE"></icon>
       </div>
     </div>
 
@@ -64,9 +64,13 @@ $--aside-header-height: 70px;
     .logo {
       justify-content: center;
 
-      .conotrol {
+      .control {
         color: #716aca;
-        font-size: 20px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   }
@@ -85,7 +89,7 @@ $--aside-header-height: 70px;
       font-size: 18px;
     }
 
-    .conotrol {
+    .control {
       color: #aeafc2;
       cursor: pointer;
     }

@@ -21,8 +21,13 @@ import axios from './axios/index'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+// Install icon
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
+Vue.component('icon', Icon)
+
 // Install global css
-import './assets/css/global.css'
+import './assets/css/global.scss'
 
 Vue.use(Vuex)
 Vue.use(library)
