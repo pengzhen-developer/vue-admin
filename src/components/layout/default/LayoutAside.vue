@@ -1,48 +1,50 @@
 <template>
-  <el-menu class="aside-menu" :collapse="LAYOUT.COLLAPSE" default-active="1-1-1" background-color="#2c2e3e" text-color="#dadada" active-text-color="#716aca">
+  <el-menu class="aside-menu" :collapse="layout.collapse" default-active="1-1-1" background-color="#2c2e3e" text-color="#dadada" active-text-color="#716aca" @select="menuSelect">
 
     <div class="logo">
-      <div v-if="!LAYOUT.COLLAPSE" class="title">METRONIC</div>
+      <div v-if="!layout.collapse" class="title">METRONIC</div>
       <div class="control">
-        <icon name="bars" @click.native="COLLAPSE"></icon>
+        <icon name="bars" @click.native="collapse"></icon>
       </div>
     </div>
 
     <el-submenu index="1">
       <template slot="title">
         <i class="el-icon-location"></i>
-        <span>自定义页面</span>
+        <span>deshboard</span>
       </template>
-      <el-menu-item index="1-1-1">登录页</el-menu-item>
-      <el-menu-item index="1-1-2">错误页</el-menu-item>
+      <el-menu-item index="deshboard/workplace">工作台</el-menu-item>
+      <el-menu-item index="deshboard/analysis">分析页</el-menu-item>
+      <el-menu-item index="deshboard/monitor">监控页</el-menu-item>
     </el-submenu>
-    <el-menu-item index="2">
-      <i class="el-icon-menu"></i>
-      <span slot="title">导航二</span>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <i class="el-icon-document"></i>
-      <span slot="title">导航三</span>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-setting"></i>
-      <span slot="title">导航四</span>
-    </el-menu-item>
   </el-menu>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
 
+const router = [{ label: '工作台', index: 'deshboard/workplace' }, { label: '分析页', index: 'deshboard/analysis' }, { label: '监控页', index: 'deshboard/monitor' }]
+
 export default {
   name: 'LayoutAside',
 
   computed: {
-    ...mapState(['LAYOUT'])
+    ...mapState(['layout'])
+  },
+
+  mounted() {
+    this.$nextTick(function() {})
   },
 
   methods: {
-    ...mapActions('LAYOUT', ['COLLAPSE'])
+    ...mapActions('layout', ['collapse', 'selectTab', 'pushTab']),
+
+    menuSelect(index) {
+      const label = router.find(item => item.index === index).label
+
+      this.pushTab({ label, index })
+      this.selectTab(index)
+    }
   }
 }
 </script>
@@ -50,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 $--aside-width: 240px;
 $--aside-height: 100vh;
-$--aside-header-height: 70px;
+$--aside-header-height: 60px;
 
 .aside-menu {
   height: $--aside-height;

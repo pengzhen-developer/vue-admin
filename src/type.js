@@ -17,12 +17,7 @@ export const user = {
 }
 
 // 布局信息
-export const layout = {
-  /**
-   * 折叠菜单
-   */
-  COLLAPSE: 'COLLAPSE'
-}
+export const layout = {}
 
 const type = { user, layout }
 

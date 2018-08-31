@@ -1,29 +1,27 @@
-import { user as USER } from '@/type'
-
 // initial state
 const state = {
-  [USER.USER_INFO]: {}
+  userInfo: {}
 }
 
 // actions
 const actions = {
-  SET({ commit }, argument) {
-    commit('SET', argument)
+  setUserInfo({ commit }, argument) {
+    commit('setUserInfo', argument)
   },
 
-  REMOVE({ commit }, argument) {
-    commit('REMOVE', argument)
+  remove({ commit }, argument) {
+    commit('remove', argument)
   }
 }
 
 // mutations
 const mutations = {
-  SET(state, argument) {
-    state[USER.USER_INFO] = argument
+  setUserInfo(state, argument) {
+    state.userInfo = argument
   },
 
-  REMOVE(state) {
-    state[USER.USER_INFO] = {}
+  remove(state) {
+    state.userInfo = {}
   }
 }
 

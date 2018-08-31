@@ -63,7 +63,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('USER', ['SET']),
+    ...mapActions('user', ['setUserInfo']),
 
     login() {
       this.$refs.form.validate(valid => {
@@ -73,7 +73,7 @@ export default {
           kindo.cache.set(user.USER_INFO, this.view.model)
 
           // Get user info from server, set to vuex
-          this.SET(this.view.model)
+          this.setUserInfo(this.view.model)
         }
       })
     },
@@ -102,6 +102,7 @@ export default {
     position: relative;
     align-items: flex-end;
     display: flex;
+    height: 100vh;
 
     &:before {
       content: '';

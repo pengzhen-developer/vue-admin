@@ -19,7 +19,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
+      name: '',
       component: () => import('./../Login.vue')
     },
 
@@ -32,7 +32,24 @@ const router = new Router({
     {
       path: '/layout',
       name: 'layout',
-      component: () => import(`./../components/layout/${kindo.config.theme.defaultTheme}/Layout.vue`)
+      component: () => import(`./../components/layout/${kindo.config.theme.defaultTheme}/Layout.vue`),
+      children: [
+        {
+          path: 'deshboard/workplace',
+          name: 'deshboard/workplace',
+          component: () => import(`./../view/deshboard/Workplace.vue`)
+        },
+        {
+          path: 'deshboard/analysis',
+          name: 'deshboard/analysis',
+          component: () => import(`./../view/deshboard/Analysis.vue`)
+        },
+        {
+          path: 'deshboard/monitor',
+          name: 'deshboard/monitor',
+          component: () => import(`./../view/deshboard/Monitor.vue`)
+        }
+      ]
     },
 
     {

@@ -50,16 +50,16 @@
       <el-dropdown trigger="click">
         <div class="drop-link">
           <icon name="user-tie"></icon>
-          {{ USER['USER_INFO'].userName }}
+          {{ user.userInfo.userName }}
         </div>
         <el-dropdown-menu class="drop-content" slot="dropdown">
-          <el-dropdown-item>
+          <el-dropdown-item @click.native="userCenter">
             <el-button disabled type="text">
               <icon class="el-icon--left" name="users-cog"></icon>个人中心
             </el-button>
           </el-dropdown-item>
-          <el-dropdown-item>
-            <el-button type="text" @click="signOut">
+          <el-dropdown-item @click.native="signOut">
+            <el-button type="text">
               <icon class="el-icon--left" name="sign-out-alt"></icon>安全退出
             </el-button>
           </el-dropdown-item>
@@ -76,15 +76,15 @@ export default {
   name: 'LayoutHeader',
 
   computed: {
-    ...mapState(['USER'])
+    ...mapState(['user'])
   },
 
   methods: {
-    ...mapActions('USER', ['REMOVE']),
+    ...mapActions('user', ['remove']),
 
     signOut() {
       kindo.cache.clear()
-      this.REMOVE()
+      this.remomve()
 
       this.$router.push('/login')
     }
@@ -93,7 +93,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$--header-height: 70px;
+$--header-height: 60px;
 
 .header {
   display: flex;
@@ -102,6 +102,7 @@ $--header-height: 70px;
 
   height: $--header-height;
   padding: 0 16px;
+  margin-bottom: 5px;
   box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
 
   .control {
