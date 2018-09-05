@@ -1,6 +1,6 @@
 {
   "name": "git-vue-admin",
-  "version": "0.0.3(Beta)",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
