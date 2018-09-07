@@ -25,7 +25,6 @@ export default {
     // Not ? push to login
     if (kindo.cache.get(user.USER_INFO)) {
       this.setUserInfo(kindo.cache.get(user.USER_INFO))
-      this.$router.push('/layout')
     } else {
       this.$router.push('/login')
     }

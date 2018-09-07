@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <div class="control">nav</div>
+    <div class="control">
+      这里可以放一些东西
+    </div>
 
     <div class="control">
 

@@ -1,5 +1,5 @@
 <template>
-  <el-menu class="aside-menu" :collapse="layout.collapse" default-active="1-1-1" background-color="#2c2e3e" text-color="#dadada" active-text-color="#716aca" @select="menuSelect">
+  <el-menu class="aside-menu" :collapse="layout.collapse" :default-active="defaultActive" background-color="#2c2e3e" text-color="#dadada" active-text-color="#716aca" @select="menuSelect">
 
     <div class="logo">
       <div v-if="!layout.collapse" class="title">METRONIC</div>
@@ -8,14 +8,14 @@
       </div>
     </div>
 
-    <el-submenu index="1">
+    <el-submenu index="deshboard">
       <template slot="title">
         <i class="el-icon-location"></i>
-        <span>deshboard</span>
+        <span>Deshboard</span>
       </template>
-      <el-menu-item index="deshboard/workplace">工作台</el-menu-item>
-      <el-menu-item index="deshboard/analysis">分析页</el-menu-item>
-      <el-menu-item index="deshboard/monitor">监控页</el-menu-item>
+      <el-menu-item index="deshboard/workplace" routeId="deshboard/workplace">工作台</el-menu-item>
+      <el-menu-item index="deshboard/analysis" routeId="deshboard/analysis">分析页</el-menu-item>
+      <el-menu-item index="deshboard/monitor" routeId="deshboard/monitor">监控页</el-menu-item>
     </el-submenu>
   </el-menu>
 </template>
@@ -32,8 +32,27 @@ export default {
     ...mapState(['layout'])
   },
 
+  data() {
+    return {
+      defaultOpeneds: ['deshboard'],
+      defaultActive: 'deshboard/workplace'
+    }
+  },
+
+  watch: {
+    $route() {
+      this.$el.querySelectorAll(`[routeId="${this.$route.name}"]`).forEach(element => {
+        element.click()
+      })
+    }
+  },
+
   mounted() {
-    this.$nextTick(function() {})
+    this.$nextTick(function() {
+      this.$el.querySelectorAll(`[routeId="${this.$route.name}"]`).forEach(element => {
+        element.click()
+      })
+    })
   },
 
   methods: {

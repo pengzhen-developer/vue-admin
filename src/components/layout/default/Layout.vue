@@ -94,6 +94,15 @@ export default {
         background: #0061da;
         color: #fff;
       }
+
+      .el-icon-close {
+        margin-left: 16px;
+      }
+    }
+
+    /deep/ .el-tabs__nav-next,
+    /deep/ .el-tabs__nav-prev {
+      line-height: 56px;
     }
   }
 }

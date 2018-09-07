@@ -18,20 +18,25 @@ const actions = {
   selectTab({ commit }, argument) {
     commit('selectTab', argument)
   },
+
   pushTab({ commit }, argument) {
     commit('pushTab', argument)
   },
+
   removeTab({ commit }, argument) {
     commit('removeTab', argument)
 
     if (state.tabList.length > 0) {
-      const prevTab = state.tabList[state.tabList.length - 1]
+      if (state.tabSelect && state.tabSelect === argument) {
+        const prevTab = state.tabList[state.tabList.length - 1].index
 
-      commit('selectTab', prevTab.index)
+        commit('selectTab', prevTab)
+      }
     } else {
       router.push('/layout')
     }
   },
+
   clearTab({ commit }, argument) {
     commit('clearTab', argument)
   }
@@ -48,14 +53,17 @@ const mutations = {
 
     router.push(`/layout/${state.tabSelect}`)
   },
+
   pushTab(state, argument) {
     if (!state.tabList.find(item => item.index === argument.index)) {
       state.tabList.push(argument)
     }
   },
+
   removeTab(state, argument) {
     state.tabList.splice(state.tabList.findIndex(item => item.index === argument), 1)
   },
+
   clearTab() {}
 }
 
